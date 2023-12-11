@@ -5,6 +5,46 @@
   text-align: center;
 }
 
+#header{
+  border:2px solid;
+}
+
+#login-state{
+  border:2px solid;
+ text-align: right;
+}
+
+#nav-menu{
+  border:2px solid; 
+  height:30px
+}
+
+/* #home-page{
+} */
+
+.nav-item{
+  display:block; 
+  float: inline-start;
+  margin:10px;
+  margin-top:5px;
+}
+
+.page-title{
+  border:2px solid; 
+}
+
+.article-card{
+  border:2px solid; 
+  margin:0px;
+  margin-left:-40px;
+  align-content: center;
+}
+.article-card-img{
+  width:50%;
+  margin: 20px;
+  margin-bottom: 0px;
+  align-content: center;
+}
 .single-article{
   border: 2px solid;
   padding:10px;
