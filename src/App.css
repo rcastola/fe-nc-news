@@ -45,3 +45,27 @@
   margin-bottom: 0px;
   align-content: center;
 }
+.single-article{
+  border: 2px solid;
+  padding:10px;
+  display:block;
+  margin-bottom: 50px;
+  height:600px;
+}
+
+.single-article-title{
+  color:rgb(2, 2, 83)
+}
+
+.single-article-image{
+  width: 50%;
+  float:left; 
+  margin:10px; 
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+}
+
+.single-article-body{
+  text-align: left;
+  margin:10px;
+}
