@@ -14,7 +14,7 @@ function getSingleArticle(article_id) {
 const SingleArticle = () => {
   const [article, setArticle] = useState({});
   const [isLoading, setIsLoading] = useState(false);
-  const [error, setError] = useState(null);
+  const [error, setError] = useState(false);
 
   const { article_id } = useParams();
 
@@ -24,11 +24,11 @@ const SingleArticle = () => {
       .then((response) => {
         setArticle(response);
         setIsLoading(false);
+        setError(false);
       })
       .catch((err) => {
         setIsLoading(false);
         setError(err);
-        return err;
       });
   }, [article_id]);
 
