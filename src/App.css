@@ -4,3 +4,30 @@
   padding: 2rem;
   text-align: center;
 }
+
+#header{
+  border:2px solid;
+}
+
+#login-state{
+  border:2px solid
+}
+
+#nav-menu{
+  border:2px solid; 
+}
+
+.nav-item{
+  display:contents; 
+}
+
+.page-title{
+  border:2px solid; 
+}
+
+.article-card{
+  border:2px solid; 
+}
+
+.article-card{
+}
