@@ -9,8 +9,8 @@ function App() {
   return (
     <>
       <BrowserRouter>
-        <Header />
         <Nav />
+        <Header />
         <Routes>
           <Route path="/api/" element={<Home />} />
           <Route path="/api/articles" element={<ArticlesList />} />
