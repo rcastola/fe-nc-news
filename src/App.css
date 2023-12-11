@@ -27,7 +27,13 @@
 
 .article-card{
   border:2px solid; 
+  margin:0px;
+  margin-left:-40px;
+  align-content: center;
 }
-
-.article-card{
+.article-card-img{
+  width:50%;
+  margin: 20px;
+  margin-bottom: 0px;
+  align-content: center;
 }
