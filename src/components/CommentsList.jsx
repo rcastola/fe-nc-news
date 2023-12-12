@@ -6,12 +6,19 @@ import CommentsCard from "./CommentsCard";
 const CommentsList = () => {
   const { article_id } = useParams();
   const [comments, setComments] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
+    setIsLoading(true);
     getCommentsByArticleID(article_id).then((response) => {
       setComments(response);
+      setIsLoading(false);
     });
   }, []);
+
+  if (isLoading) {
+    return <div>Loading...</div>;
+  }
 
   return (
     <div id="comments-section">
