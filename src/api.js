@@ -33,3 +33,10 @@ export function getUsers() {
       return response.data.users;
     });
 }
+
+export function postComment(article_id, newComment) {
+  const url = `https://hosting-news.onrender.com/api/articles/${article_id}/comments`;
+  return axios.post(url, newComment).then((response) => {
+    return response.data.comments;
+  });
+}

@@ -51,7 +51,6 @@ const SingleArticle = () => {
       <Collapsible>
         <CommentsList />
       </Collapsible>
-      <CommentAdder />
     </>
   );
 };
