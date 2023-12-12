@@ -7,7 +7,7 @@ const CommentAdder = () => {
   const [comment, setComment] = useState({});
 
   return (
-    <div classname="comment-form">
+    <div className="comment-form">
       <label id="text-comment-label">
         Add your own comment:
         <form>

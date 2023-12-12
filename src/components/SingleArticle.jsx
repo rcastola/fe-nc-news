@@ -45,6 +45,7 @@ const SingleArticle = () => {
         ></img>
         <p className="single-article-body">{article.body}</p>
         <p>Topic: {article.topic}</p>
+        <p>Votes: {article.votes}</p>
         <p>Dated: {article.created_at}</p>
       </div>
       <p>This article has {article.comment_count} comments. </p>
