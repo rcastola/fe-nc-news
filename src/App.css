@@ -94,4 +94,11 @@
   background-color: rgb(176, 12, 12);
   border: none;
   margin-right: 10px;
+
+}
+
+#voting-items{
+  float:right;
+  margin-right:25%;
+  margin-bottom:30px
 }
