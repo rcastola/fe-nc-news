@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import CommentsList from "./CommentsList";
 import { getSingleArticle } from "../api";
 import Collapsible from "./Collapsible";
+import CommentAdder from "./CommentAdder";
 
 const SingleArticle = () => {
   const [article, setArticle] = useState({});
@@ -50,6 +51,7 @@ const SingleArticle = () => {
       <Collapsible>
         <CommentsList />
       </Collapsible>
+      <CommentAdder />
     </>
   );
 };
