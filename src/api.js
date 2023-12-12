@@ -25,3 +25,11 @@ export function getCommentsByArticleID(article_id) {
       return response.data.comments;
     });
 }
+
+export function getUsers() {
+  return axios
+    .get("https://hosting-news.onrender.com/api/users")
+    .then((response) => {
+      return response.data.users;
+    });
+}

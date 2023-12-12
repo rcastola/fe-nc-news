@@ -9,7 +9,7 @@ const Collapsible = ({ children }) => {
 
   return (
     <div>
-      <button onClick={toggleIsHidden}>
+      <button id="comment-display-button" onClick={toggleIsHidden}>
         {isHidden ? "Show" : "Hide"} comments{" "}
       </button>
       {isHidden ? null : children}

@@ -10,7 +10,6 @@ const Nav = () => {
         <nav className="nav-item"> Articles</nav>
       </Link>
       <nav className="nav-item"> Topics</nav>
-      <nav className="nav-item"> Users</nav>
     </div>
   );
 };
