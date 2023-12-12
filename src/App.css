@@ -49,8 +49,9 @@
   border: 2px solid;
   padding:10px;
   display:block;
+  padding-bottom: 50px;
   margin-bottom: 50px;
-  height:600px;
+  height:600px
 }
 
 .single-article-title{
@@ -68,4 +69,16 @@
 .single-article-body{
   text-align: left;
   margin:10px;
+}
+
+.comments-section{
+  border: 2px solid;
+}
+
+.comments-card{
+  border: 2px solid;
+}
+
+.comment-author{
+  color: blue;
 }

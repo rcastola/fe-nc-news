@@ -4,7 +4,7 @@ import ArticlesList from "./components/ArticlesList";
 import Header from "./components/Header";
 import Nav from "./components/Nav";
 import Home from "./components/Home";
-import SingleArticle from "./SingleArticle";
+import SingleArticle from "./components/SingleArticle";
 
 function App() {
   return (
