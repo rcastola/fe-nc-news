@@ -82,3 +82,16 @@
 .comment-author{
   color: blue;
 }
+
+#upVote-button{
+  background-color: rgb(12, 176, 12);
+  border: none;
+  margin-right: 10px;
+}
+
+
+#downVote-button{
+  background-color: rgb(176, 12, 12);
+  border: none;
+  margin-right: 10px;
+}

@@ -25,3 +25,14 @@ export function getCommentsByArticleID(article_id) {
       return response.data.comments;
     });
 }
+
+export function patchArticle(article_id, patchBody) {
+  return axios
+    .patch(
+      `https://hosting-news.onrender.com/api/articles/${article_id}`,
+      patchBody
+    )
+    .then((response) => {
+      return response.data.article;
+    });
+}
