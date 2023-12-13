@@ -41,7 +41,7 @@ const CommentsCard = (comment) => {
 
   return (
     <div>
-      {deleteStatus && userMatch ? (
+      {deleteStatus && userMatch && !error ? (
         <div className="delete-message"> Comment deleted </div>
       ) : (
         <div className="comments-card">
@@ -66,7 +66,11 @@ const CommentsCard = (comment) => {
           >
             Delete
           </button>
-          {error ? <div>Network Error. Try again later </div> : null}
+          {error ? (
+            <div className="delete-message-error">
+              Network Error. Try again later{" "}
+            </div>
+          ) : null}
         </div>
       )}
     </div>
