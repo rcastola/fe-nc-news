@@ -2,10 +2,14 @@ import { useEffect, useState } from "react";
 import { getAllArticles } from "../api";
 import ArticlesCard from "./ArticlesCard";
 import SortingArticles from "./SortingArticles";
+import { useSearchParams } from "react-router-dom";
 
 const ArticlesList = () => {
   const [articles, setArticles] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
+  const [searchParams, setSearchParams] = useSearchParams();
+  const sortFilter = searchParams.get("sort_by");
+  //console.log(sortFilter, "in articles list");
 
   useEffect(() => {
     setIsLoading(true);
@@ -13,7 +17,11 @@ const ArticlesList = () => {
       setArticles(response);
       setIsLoading(false);
     });
-  }, []);
+  }, [searchParams]);
+
+  if (sortFilter) {
+    console.log(sortFilter, "sorted by");
+  }
 
   if (isLoading) {
     return <div>Loading...</div>;
