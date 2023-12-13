@@ -77,6 +77,8 @@
 
 .comments-card{
   border: 2px solid;
+  padding:20px;
+  padding-bottom: 30px;
 }
 
 .comment-author{
@@ -140,4 +142,20 @@ margin-top: 50px;
 .user-avatar{
   height:100px;
   width:100px;
+}
+
+#delete-button{
+  float:right;
+}
+
+.delete-message{
+  color: red;
+  border:2px solid black;
+  width:640px;
+  height:110px;
+  vertical-align:middle;
+}
+
+.delete-message-error{
+  color: red;
 }

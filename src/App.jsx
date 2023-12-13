@@ -16,13 +16,10 @@ function App() {
           <Nav />
           <Header />
           <Routes>
-            <Route path="api/" element={<Home />} />
-            <Route path="api/articles" element={<ArticlesList />} />
-            <Route
-              path="api/articles/:article_id"
-              element={<SingleArticle />}
-            />
-            <Route path="api/users" element={<Users />} />
+            <Route path="/" element={<Home />} />
+            <Route path="/articles" element={<ArticlesList />} />
+            <Route path="/articles/:article_id" element={<SingleArticle />} />
+            <Route path="/users" element={<Users />} />
           </Routes>
         </BrowserRouter>
       </UserProvider>

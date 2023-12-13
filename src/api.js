@@ -44,6 +44,13 @@ export function getUsers() {
     });
 }
 
+export function deleteComment(comment_id) {
+  return axios
+    .delete(`https://hosting-news.onrender.com/api/comments/${comment_id}`)
+    .then((response) => {
+      return response;
+    });
+}
 export function postComment(article_id, newComment) {
   const url = `https://hosting-news.onrender.com/api/articles/${article_id}/comments`;
   return axios.post(url, newComment).then((response) => {

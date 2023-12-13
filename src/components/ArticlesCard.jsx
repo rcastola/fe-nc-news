@@ -5,7 +5,7 @@ import { useState } from "react";
 const ArticlesCard = (article) => {
   return (
     <div className="article-card">
-      <Link to={`/api/articles/${article.article.article_id}`}>
+      <Link to={`/articles/${article.article.article_id}`}>
         <h3>{article.article.title}</h3>
       </Link>
       <img
