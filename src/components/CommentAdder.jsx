@@ -9,6 +9,7 @@ const CommentAdder = ({ setComments }) => {
   const [finalComment, setFinalComment] = useState(null);
   const [error, setError] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
+  const [emptyBody, setEmptyBody] = useState(false);
   const { article_id } = useParams();
 
   useEffect(() => {
@@ -23,6 +24,7 @@ const CommentAdder = ({ setComments }) => {
         })
         .catch((err) => {
           setError(true);
+          setIsLoading(false);
         });
     }
     setCommentBody("");
@@ -30,10 +32,15 @@ const CommentAdder = ({ setComments }) => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    setFinalComment({
-      body: commentBody,
-      author: user,
-    });
+    if (commentBody.length !== 0) {
+      setFinalComment({
+        body: commentBody,
+        author: user,
+      });
+      setEmptyBody(false);
+    } else {
+      setEmptyBody(true);
+    }
   };
 
   return (
@@ -43,7 +50,7 @@ const CommentAdder = ({ setComments }) => {
         <form onSubmit={handleSubmit}>
           <input
             id="text-comment-input"
-            type="text"
+            type="textarea"
             placeholder="Tell us what you think"
             value={commentBody}
             onChange={(event) => {
@@ -53,9 +60,10 @@ const CommentAdder = ({ setComments }) => {
           <button>Add comment</button>
         </form>
       </label>
-      {isLoading ? <p>Comment loading...</p> : null}
+      {isLoading && finalComment ? <p>Comment loading...</p> : null}
       {!error && !isLoading && finalComment ? <p>Comment posted!</p> : null}
       {error ? <p>You must log in to post a comment</p> : null}
+      {emptyBody ? <p>You must type a least 1 character</p> : null}
     </div>
   );
 };
