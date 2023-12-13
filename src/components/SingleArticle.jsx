@@ -4,6 +4,7 @@ import CommentsList from "./CommentsList";
 import { getSingleArticle } from "../api";
 import Collapsible from "./Collapsible";
 import { patchArticle } from "../api";
+import CommentAdder from "./CommentAdder";
 
 const SingleArticle = () => {
   const [article, setArticle] = useState({});

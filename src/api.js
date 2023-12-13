@@ -36,3 +36,17 @@ export function patchArticle(article_id, patchBody) {
       return response.data.article;
     });
 }
+export function getUsers() {
+  return axios
+    .get("https://hosting-news.onrender.com/api/users")
+    .then((response) => {
+      return response.data.users;
+    });
+}
+
+export function postComment(article_id, newComment) {
+  const url = `https://hosting-news.onrender.com/api/articles/${article_id}/comments`;
+  return axios.post(url, newComment).then((response) => {
+    return response.data.comments;
+  });
+}
