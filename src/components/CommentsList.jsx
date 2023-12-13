@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { getCommentsByArticleID } from "../api";
 import { useParams } from "react-router-dom";
 import CommentsCard from "./CommentsCard";
+import CommentAdder from "./CommentAdder";
 
 const CommentsList = () => {
   const { article_id } = useParams();
@@ -22,6 +23,7 @@ const CommentsList = () => {
 
   return (
     <div id="comments-section">
+      <CommentAdder setComments={setComments} />
       <h3>Comments:</h3>
       <ul id="comments-list">
         {comments.map((comment) => {
