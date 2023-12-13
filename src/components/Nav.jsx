@@ -9,7 +9,9 @@ const Nav = () => {
       <Link to={"/api/articles"}>
         <nav className="nav-item"> Articles</nav>
       </Link>
-      <nav className="nav-item"> Topics</nav>
+      <Link to={"/api/topics"}>
+        <nav className="nav-item"> Topics</nav>
+      </Link>
     </div>
   );
 };

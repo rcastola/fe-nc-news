@@ -1,10 +1,13 @@
 import { useEffect, useState } from "react";
 import { getAllArticles } from "../api";
 import ArticlesCard from "./ArticlesCard";
+import { useSearchParams } from "react-router-dom";
 
 const ArticlesList = () => {
   const [articles, setArticles] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
+  const [searchParams, setSearchParams] = useSearchParams();
+  console.log(useSearchParams());
 
   useEffect(() => {
     setIsLoading(true);

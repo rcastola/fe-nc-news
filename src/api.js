@@ -33,3 +33,11 @@ export function getUsers() {
       return response.data.users;
     });
 }
+
+export function getTopicsList() {
+  return axios
+    .get("https://hosting-news.onrender.com/api/topics")
+    .then((response) => {
+      return response.data.topics;
+    });
+}
