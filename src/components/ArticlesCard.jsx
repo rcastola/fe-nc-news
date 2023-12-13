@@ -1,4 +1,6 @@
 import { Link } from "react-router-dom";
+import { patchArticle } from "../api";
+import { useState } from "react";
 
 const ArticlesCard = (article) => {
   return (
@@ -12,6 +14,7 @@ const ArticlesCard = (article) => {
       ></img>
       <p>Topic: {article.article.topic}</p>
       <p>Votes: {article.article.votes}</p>
+
       <p>Created at: {article.article.created_at}</p>
     </div>
   );
