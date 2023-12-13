@@ -18,7 +18,7 @@ const TopicsList = () => {
       {topics.map((topic) => {
         return (
           <div className="topic-card" key={topic.slug}>
-            <Link to={`/api/articles?topic=${topic.slug}`}>
+            <Link to={`/articles?topic=${topic.slug}`}>
               <h3>{topic.slug}</h3>
             </Link>
             <p>{topic.description}</p>
