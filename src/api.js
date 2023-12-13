@@ -33,3 +33,11 @@ export function getUsers() {
       return response.data.users;
     });
 }
+
+export function deleteComment(comment_id) {
+  return axios
+    .delete(`https://hosting-news.onrender.com/api/comments/${comment_id}`)
+    .then((response) => {
+      return response;
+    });
+}

@@ -3,7 +3,6 @@ import { UserContext } from "./UserContext";
 
 const CommentAdder = () => {
   const { user } = useContext(UserContext);
-  console.log(user);
   const [comment, setComment] = useState({});
 
   return (
