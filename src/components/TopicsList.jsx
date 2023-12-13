@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { getTopicsList } from "../api";
+import { Link } from "react-router-dom";
 
 const TopicsList = () => {
   const [topics, setTopics] = useState([]);
@@ -17,7 +18,9 @@ const TopicsList = () => {
       {topics.map((topic) => {
         return (
           <div className="topic-card" key={topic.slug}>
-            <h3>{topic.slug}</h3>
+            <Link to={`/api/articles?topic=${topic.slug}`}>
+              <h3>{topic.slug}</h3>
+            </Link>
             <p>{topic.description}</p>
           </div>
         );

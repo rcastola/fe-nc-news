@@ -7,13 +7,22 @@ const ArticlesList = () => {
   const [articles, setArticles] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [searchParams, setSearchParams] = useSearchParams();
-  console.log(useSearchParams());
+  const searchTopic = searchParams.get("topic");
+  let articlesByTopic = [];
 
   useEffect(() => {
     setIsLoading(true);
     getAllArticles().then((response) => {
-      setArticles(response);
-      setIsLoading(false);
+      if (searchTopic) {
+        articlesByTopic = response.filter((article) => {
+          return article.topic === searchTopic;
+        });
+        setArticles(articlesByTopic);
+        setIsLoading(false);
+      } else {
+        setArticles(response);
+        setIsLoading(false);
+      }
     });
   }, []);
 
