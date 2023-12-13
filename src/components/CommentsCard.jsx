@@ -5,17 +5,11 @@ import { Link } from "react-router-dom";
 
 const CommentsCard = (comment) => {
   const [deleteStatus, setDeleteStatus] = useState(false);
-  const [comment_id, setComment_id] = useState(null);
+  const [comment_id, setComment_id] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [userMatch, setUserMatch] = useState(null);
+  const [error, setError] = useState(false);
   const { user } = useContext(UserContext);
-
-  useEffect(() => {
-    setIsLoading(true);
-    deleteComment(comment_id).then(() => {
-      setIsLoading(false);
-    });
-  }, [deleteStatus]);
 
   function handleDeleteComment() {
     if (user === comment.comment.author) {
@@ -24,10 +18,26 @@ const CommentsCard = (comment) => {
     }
     setDeleteStatus(true);
   }
+  console.log(deleteStatus, "delete status");
+
+  useEffect(() => {
+    setIsLoading(true);
+    deleteComment(comment_id)
+      .then(() => {
+        setIsLoading(false);
+        setError(false);
+      })
+      .catch((err) => {
+        setError(true);
+        setIsLoading(false);
+      });
+  }, [deleteStatus]);
 
   if (isLoading && deleteStatus && userMatch) {
     return <div>Loading ...</div>;
   }
+
+  console.log(error, "error");
 
   return (
     <div>
@@ -56,6 +66,7 @@ const CommentsCard = (comment) => {
           >
             Delete
           </button>
+          {/* {error ? <div>Network Error. Try again later </div> : null} */}
         </div>
       )}
     </div>
