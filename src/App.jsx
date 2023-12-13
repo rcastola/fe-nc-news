@@ -23,6 +23,7 @@ function App() {
               element={<SingleArticle />}
             />
             <Route path="api/users" element={<Users />} />
+            <Route path="api/topics" element={<Topics />} />
           </Routes>
         </BrowserRouter>
       </UserProvider>
