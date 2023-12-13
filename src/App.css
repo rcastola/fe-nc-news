@@ -77,12 +77,33 @@
 
 .comments-card{
   border: 2px solid;
+  padding:20px;
+  padding-bottom: 30px;
 }
 
 .comment-author{
   color: blue;
 }
 
+#upVote-button{
+  background-color: rgb(12, 176, 12);
+  border: none;
+  margin-right: 10px;
+}
+
+
+#downVote-button{
+  background-color: rgb(176, 12, 12);
+  border: none;
+  margin-right: 10px;
+
+}
+
+#voting-items{
+  float:right;
+  margin-right:25%;
+  margin-bottom:30px
+}
 .comment-body{
   color:black
 }
@@ -123,6 +144,21 @@ margin-top: 50px;
   width:100px;
 }
 
-.topic-card{
+.topic-card {
   border:2px solid;
+}
+#delete-button{
+  float:right;
+}
+
+.delete-message{
+  color: red;
+  border:2px solid black;
+  width:640px;
+  height:110px;
+  vertical-align:middle;
+}
+
+.delete-message-error{
+  color: red;
 }

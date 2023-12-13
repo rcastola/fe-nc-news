@@ -9,7 +9,7 @@ const Header = () => {
       {user ? (
         <p id="login-state">{user} is logged in. </p>
       ) : (
-        <Link to={"/api/users"}>
+        <Link to={"/users"}>
           <p id="login-state">Click to log in.</p>
         </Link>
       )}
