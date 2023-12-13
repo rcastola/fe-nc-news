@@ -1,16 +1,28 @@
 import { useEffect, useState } from "react";
 import { getAllArticles } from "../api";
 import ArticlesCard from "./ArticlesCard";
+import { useSearchParams } from "react-router-dom";
 
 const ArticlesList = () => {
   const [articles, setArticles] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
+  const [searchParams, setSearchParams] = useSearchParams();
+  const searchTopic = searchParams.get("topic");
+  let articlesByTopic = [];
 
   useEffect(() => {
     setIsLoading(true);
     getAllArticles().then((response) => {
-      setArticles(response);
-      setIsLoading(false);
+      if (searchTopic) {
+        articlesByTopic = response.filter((article) => {
+          return article.topic === searchTopic;
+        });
+        setArticles(articlesByTopic);
+        setIsLoading(false);
+      } else {
+        setArticles(response);
+        setIsLoading(false);
+      }
     });
   }, []);
 

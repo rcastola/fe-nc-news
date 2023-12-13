@@ -7,6 +7,7 @@ import Home from "./components/Home";
 import SingleArticle from "./components/SingleArticle";
 import Users from "./components/Users";
 import { UserProvider } from "./components/UserContext";
+import TopicsList from "./components/TopicsList";
 
 function App() {
   return (
