@@ -26,6 +26,16 @@ export function getCommentsByArticleID(article_id) {
     });
 }
 
+export function patchArticle(article_id, patchBody) {
+  return axios
+    .patch(
+      `https://hosting-news.onrender.com/api/articles/${article_id}`,
+      patchBody
+    )
+    .then((response) => {
+      return response.data.article;
+    });
+}
 export function getUsers() {
   return axios
     .get("https://hosting-news.onrender.com/api/users")
@@ -40,4 +50,10 @@ export function deleteComment(comment_id) {
     .then((response) => {
       return response;
     });
+}
+export function postComment(article_id, newComment) {
+  const url = `https://hosting-news.onrender.com/api/articles/${article_id}/comments`;
+  return axios.post(url, newComment).then((response) => {
+    return response.data.comments;
+  });
 }
