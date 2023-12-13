@@ -5,9 +5,7 @@ import { postComment } from "../api";
 
 const CommentAdder = ({ setComments }) => {
   const { user } = useContext(UserContext);
-<<<<<<< HEAD
   const [comment, setComment] = useState({});
-=======
   const [commentBody, setCommentBody] = useState("");
   const [finalComment, setFinalComment] = useState(null);
   const [error, setError] = useState(false);
@@ -45,7 +43,6 @@ const CommentAdder = ({ setComments }) => {
       setEmptyBody(true);
     }
   };
->>>>>>> main
 
   return (
     <div className="comment-form">

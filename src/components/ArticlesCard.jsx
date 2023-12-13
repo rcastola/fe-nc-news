@@ -14,7 +14,7 @@ const ArticlesCard = (article) => {
       ></img>
       <p>Topic: {article.article.topic}</p>
       <p>Votes: {article.article.votes}</p>
-
+      <p>Comments: {article.article.comment_count}</p>
       <p>Created at: {article.article.created_at}</p>
     </div>
   );
