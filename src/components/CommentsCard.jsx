@@ -18,26 +18,26 @@ const CommentsCard = (comment) => {
     }
     setDeleteStatus(true);
   }
-  console.log(deleteStatus, "delete status");
 
   useEffect(() => {
     setIsLoading(true);
-    deleteComment(comment_id)
-      .then(() => {
-        setIsLoading(false);
-        setError(false);
-      })
-      .catch((err) => {
-        setError(true);
-        setIsLoading(false);
-      });
+    if (comment_id.length !== 0) {
+      deleteComment(comment_id)
+        .then(() => {
+          setIsLoading(false);
+          setError(false);
+        })
+        .catch((err) => {
+          setError(true);
+          setIsLoading(false);
+        });
+    }
   }, [deleteStatus]);
+  console.log(error);
 
   if (isLoading && deleteStatus && userMatch) {
     return <div>Loading ...</div>;
   }
-
-  console.log(error, "error");
 
   return (
     <div>
@@ -66,7 +66,7 @@ const CommentsCard = (comment) => {
           >
             Delete
           </button>
-          {/* {error ? <div>Network Error. Try again later </div> : null} */}
+          {error ? <div>Network Error. Try again later </div> : null}
         </div>
       )}
     </div>
