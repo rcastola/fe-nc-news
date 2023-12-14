@@ -22,7 +22,6 @@ const ArticlesList = () => {
 
   const URLSortFilter = searchParams.get("sort_by");
   const URLSortOrder = searchParams.get("order");
-  console.log(URLSortFilter, URLSortOrder);
 
   useEffect(() => {
     setIsLoading(true);

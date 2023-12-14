@@ -1,68 +1,56 @@
 import axios from "axios";
 
+const newsApi = axios.create({
+  baseURL: "https://hosting-news.onrender.com/api",
+});
+
 export function getAllArticles() {
-  return axios
-    .get(`https://hosting-news.onrender.com/api/articles`)
-    .then((response) => {
-      return response.data.articles;
-    });
+  return newsApi.get(`/articles`).then((response) => {
+    return response.data.articles;
+  });
 }
 export function getSortedArticles(sortFilter, sortOrder) {
-  return axios
-    .get(
-      `https://hosting-news.onrender.com/api/articles?sort_by=${sortFilter}&order=${sortOrder}`
-    )
+  return newsApi
+    .get(`/articles?sort_by=${sortFilter}&order=${sortOrder}`)
     .then((response) => {
       return response.data.articles;
     });
 }
 
 export function getSingleArticle(article_id) {
-  return axios
-    .get(`https://hosting-news.onrender.com/api/articles/${article_id}`)
-    .then((response) => {
-      return response.data.articles;
-    });
+  return newsApi.get(`/articles/${article_id}`).then((response) => {
+    return response.data.articles;
+  });
 }
 
 export function getCommentsByArticleID(article_id) {
-  return axios
-    .get(
-      `https://hosting-news.onrender.com/api/articles/${article_id}/comments`
-    )
-    .then((response) => {
-      return response.data.comments;
-    });
+  return newsApi.get(`/articles/${article_id}/comments`).then((response) => {
+    return response.data.comments;
+  });
 }
 
 export function patchArticle(article_id, patchBody) {
-  return axios
-    .patch(
-      `https://hosting-news.onrender.com/api/articles/${article_id}`,
-      patchBody
-    )
+  return newsApi
+    .patch(`/articles/${article_id}`, patchBody)
     .then((response) => {
       return response.data.article;
     });
 }
 export function getUsers() {
-  return axios
-    .get("https://hosting-news.onrender.com/api/users")
-    .then((response) => {
-      return response.data.users;
-    });
+  return newsApi.get("/users").then((response) => {
+    return response.data.users;
+  });
 }
 
 export function deleteComment(comment_id) {
-  return axios
-    .delete(`https://hosting-news.onrender.com/api/comments/${comment_id}`)
-    .then((response) => {
-      return response;
-    });
+  return newsApi.delete(`/comments/${comment_id}`).then((response) => {
+    return response;
+  });
 }
 export function postComment(article_id, newComment) {
-  const url = `https://hosting-news.onrender.com/api/articles/${article_id}/comments`;
-  return axios.post(url, newComment).then((response) => {
-    return response.data.comments;
-  });
+  return newsApi
+    .post(`/articles/${article_id}/comments`, newComment)
+    .then((response) => {
+      return response.data.comments;
+    });
 }
