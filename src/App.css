@@ -4,29 +4,37 @@
   padding: 2rem;
   text-align: center;
 }
-
-#header{
-  border:2px solid;
-}
-
-#login-state{
-  border:2px solid;
- text-align: right;
-}
-
+/* Nav and Header */
 #nav-menu{
   border:2px solid; 
-  height:30px
+  height:30px;
+  background-color: #66ccff;
 }
-
-/* #home-page{
-} */
-
 .nav-item{
   display:block; 
   float: inline-start;
   margin:10px;
   margin-top:5px;
+  color:black;
+  font-weight: bolder;
+}
+#login-state{
+  background-color: #66ccff;
+  border:2px solid black;
+ text-align: right;
+ color:black;
+ font-weight: bolder;
+ margin-top: 5px;
+ margin-bottom: 5px;
+}
+#header{
+  /* border:2px solid; */
+  /* background-color: #9999ff; */
+  font-size: 700%;
+  margin-top:0px;
+  color:  #3399ff;
+  -webkit-text-stroke: 1px black;
+  margin-bottom: 0px;
 }
 
 .page-title{
@@ -161,4 +169,13 @@ margin-top: 50px;
 
 .delete-message-error{
   color: red;
+}
+
+#sorting-component{
+  border:2px solid black;
+}
+
+#sort-message{
+  border:2px solid black;
+  color:rgb(70, 43, 226);
 }

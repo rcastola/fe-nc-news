@@ -5,7 +5,11 @@ import { getSingleArticle } from "../api";
 import Collapsible from "./Collapsible";
 import { patchArticle } from "../api";
 import CommentAdder from "./CommentAdder";
+<<<<<<< HEAD
 import Error from "./Error";
+=======
+import dayjs from "dayjs";
+>>>>>>> main
 
 const SingleArticle = () => {
   const [article, setArticle] = useState({});
@@ -15,6 +19,8 @@ const SingleArticle = () => {
   const [vote, setVote] = useState(null);
   const [patchedArticle, setPatchedArticle] = useState([]);
   const [voteError, setVoteError] = useState(false);
+
+  const dateStr = `${dayjs(article.created_at).$d}`.slice(0, 21);
 
   const upVote = (article_id) => {
     const patchBody = { inc_votes: 1 };
@@ -106,7 +112,7 @@ const SingleArticle = () => {
           {voteError ? <p>Unable to vote. Try again later.</p> : null}
         </div>
       </div>
-      <p>Dated: {article.created_at}</p>
+      <p>Dated: {dateStr}</p>
       <p>This article has {article.comment_count} comments. </p>
       <Collapsible>
         <CommentsList />
