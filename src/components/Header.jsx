@@ -7,7 +7,12 @@ const Header = () => {
   return (
     <div>
       {user ? (
-        <p id="login-state">{user} is logged in. </p>
+        <div id="login-state">
+          <p>{user} is logged in. </p>
+          <Link to={"/users"}>
+            <p>Log into another account.</p>
+          </Link>
+        </div>
       ) : (
         <Link to={"/users"}>
           <p id="login-state">Click to log in.</p>

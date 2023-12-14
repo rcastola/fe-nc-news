@@ -42,6 +42,13 @@ export function getUsers() {
   });
 }
 
+export function getTopicsList() {
+  return axios
+    .get("https://hosting-news.onrender.com/api/topics")
+    .then((response) => {
+      return response.data.topics;
+    });
+}
 export function deleteComment(comment_id) {
   return newsApi.delete(`/comments/${comment_id}`).then((response) => {
     return response;

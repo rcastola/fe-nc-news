@@ -40,6 +40,24 @@ const ArticlesList = () => {
       });
     }
   }, [sortFilter]);
+  const searchTopic = searchParams.get("topic");
+  let articlesByTopic = [];
+
+  useEffect(() => {
+    setIsLoading(true);
+    getAllArticles().then((response) => {
+      if (searchTopic) {
+        articlesByTopic = response.filter((article) => {
+          return article.topic === searchTopic;
+        });
+        setArticles(articlesByTopic);
+        setIsLoading(false);
+      } else {
+        setArticles(response);
+        setIsLoading(false);
+      }
+    });
+  }, []);
 
   if (isLoading) {
     return <div>Loading...</div>;

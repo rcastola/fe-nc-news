@@ -144,6 +144,9 @@ margin-top: 50px;
   width:100px;
 }
 
+.topic-card {
+  border:2px solid;
+}
 #delete-button{
   float:right;
 }
