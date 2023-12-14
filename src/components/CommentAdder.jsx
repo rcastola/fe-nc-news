@@ -1,6 +1,6 @@
 import { useContext, useEffect, useState } from "react";
 import { UserContext } from "./UserContext";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { postComment } from "../api";
 
 const CommentAdder = ({ setComments }) => {
@@ -63,7 +63,15 @@ const CommentAdder = ({ setComments }) => {
       </label>
       {isLoading && finalComment ? <p>Comment loading...</p> : null}
       {!error && !isLoading && finalComment ? <p>Comment posted!</p> : null}
-      {error ? <p>You must log in to post a comment</p> : null}
+      {error ? (
+        <div>
+          {" "}
+          <p>You must log in to post a comment.</p>
+          <Link to={"/users"}>
+            <p> Log in here. </p>{" "}
+          </Link>
+        </div>
+      ) : null}
       {emptyBody ? <p>You must type a least 1 character</p> : null}
     </div>
   );
