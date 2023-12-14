@@ -2,7 +2,16 @@ import axios from "axios";
 
 export function getAllArticles() {
   return axios
-    .get("https://hosting-news.onrender.com/api/articles")
+    .get(`https://hosting-news.onrender.com/api/articles`)
+    .then((response) => {
+      return response.data.articles;
+    });
+}
+export function getSortedArticles(sortFilter, sortOrder) {
+  return axios
+    .get(
+      `https://hosting-news.onrender.com/api/articles?sort_by=${sortFilter}&order=${sortOrder}`
+    )
     .then((response) => {
       return response.data.articles;
     });

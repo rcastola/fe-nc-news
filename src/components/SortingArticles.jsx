@@ -2,32 +2,30 @@ import { useEffect, useState } from "react";
 import { useParams, useSearchParams } from "react-router-dom";
 
 const SortingArticles = ({ children }) => {
-  const [sortValue, setSortValue] = useState("");
   const [searchParams, setSearchParams] = useSearchParams();
   const sortFilter = searchParams.get("sort_by");
+  const sortOrder = searchParams.get("order");
 
-  function handleSubmit(event) {
+  function handleSubmit() {
     setSortValue(sortFilter);
+    setOrderValue(sortOrder);
   }
-  // console.log(sortValue, "sort value");
 
   return (
     <div>
       <form id="sorting-component" onSubmit={handleSubmit}>
         Sort articles by:
         <select name="sort_by">
-          <option value="">All</option>
-          <option value="created_at">Date</option>
+          <option value="created_at">Date (default)</option>
           <option value="comment_count">Comments</option>
           <option value="votes">Votes</option>
         </select>
-        {/* <select name="order">
-        <option value="ASC">ascending</option>
-        <option value="DESC">descending</option>
-      </select> */}
+        <select name="order">
+          <option value="DESC">descending (default)</option>
+          <option value="ASC">ascending</option>
+        </select>
         <button>Go</button>
       </form>
-      {children}
     </div>
   );
 };
