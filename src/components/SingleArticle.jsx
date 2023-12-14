@@ -5,6 +5,7 @@ import { getSingleArticle } from "../api";
 import Collapsible from "./Collapsible";
 import { patchArticle } from "../api";
 import CommentAdder from "./CommentAdder";
+import Error from "./Error";
 
 const SingleArticle = () => {
   const [article, setArticle] = useState({});
@@ -48,6 +49,7 @@ const SingleArticle = () => {
         setError(false);
       })
       .catch((err) => {
+        console.log(err);
         setIsLoading(false);
         setError(err);
       });
@@ -58,7 +60,11 @@ const SingleArticle = () => {
   }
 
   if (error) {
-    return <h2>Oops! {error.message}. Try again!</h2>;
+    return (
+      <div>
+        <Error message={error.message} />
+      </div>
+    );
   }
 
   return (
