@@ -162,3 +162,12 @@ margin-top: 50px;
 .delete-message-error{
   color: red;
 }
+
+#sorting-component{
+  border:2px solid black;
+}
+
+#sort-message{
+  border:2px solid black;
+  color:rgb(70, 43, 226);
+}
