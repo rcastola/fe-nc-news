@@ -5,11 +5,8 @@ import { getSingleArticle } from "../api";
 import Collapsible from "./Collapsible";
 import { patchArticle } from "../api";
 import CommentAdder from "./CommentAdder";
-<<<<<<< HEAD
 import Error from "./Error";
-=======
 import dayjs from "dayjs";
->>>>>>> main
 
 const SingleArticle = () => {
   const [article, setArticle] = useState({});

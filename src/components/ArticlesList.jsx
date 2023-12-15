@@ -24,43 +24,41 @@ const ArticlesList = () => {
 
   const URLSortFilter = searchParams.get("sort_by");
   const URLSortOrder = searchParams.get("order");
-
-  useEffect(() => {
-    setIsLoading(true);
-
-    if (URLSortFilter || URLSortOrder) {
-      getSortedArticles(URLSortFilter, URLSortOrder).then((response) => {
-        setSortFilter(true);
-        setArticles(response);
-        setIsLoading(false);
-      });
-    } else {
-      getAllArticles(sortFilter).then((response) => {
-        setArticles(response);
-        setIsLoading(false);
-        setSortFilter(false);
-      });
-    }
-  }, [sortFilter]);
   const searchTopic = searchParams.get("topic");
   let articlesByTopic = [];
 
   useEffect(() => {
     setIsLoading(true);
-    getAllArticles().then((response) => {
-      setError(false);
-      if (searchTopic) {
+
+    if (URLSortFilter || URLSortOrder) {
+      getSortedArticles(URLSortFilter, URLSortOrder)
+        .then((response) => {
+          setSortFilter(true);
+          setArticles(response);
+          setIsLoading(false);
+        })
+        .catch((err) => {
+          setError(true);
+          setIsLoading(false);
+        });
+    } else if (searchTopic) {
+      getAllArticles().then((response) => {
+        setError(false);
+        setIsLoading(false);
         articlesByTopic = response.filter((article) => {
           return article.topic === searchTopic;
         });
         setArticles(articlesByTopic);
         setIsLoading(false);
-      } else {
+      });
+    } else {
+      getAllArticles().then((response) => {
+        setError(false);
         setArticles(response);
         setIsLoading(false);
-      }
-    });
-  }, []);
+      });
+    }
+  }, [sortFilter]);
 
   if (isLoading) {
     return <div>Loading...</div>;
